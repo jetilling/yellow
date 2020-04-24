@@ -1,0 +1,7 @@
+#546e7a - dark blue/green
+#0B486B - dark blue
+#FCFDFF - white (cooler)
+#fefefe - white (more stark)
+#79BD9A - green
+#A8DBA8 - light green
+#F06060 - 2016 popular red
