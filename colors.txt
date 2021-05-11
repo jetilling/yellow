@@ -5,3 +5,15 @@
 #79BD9A - green
 #A8DBA8 - light green
 #F06060 - 2016 popular red
+
+
+
+Green: #8bf0ba
+
+Ironic Blues: #0e0fed
+
+Blue Underling: #94f0f1
+
+Pinky Ring: #f2b1d8
+
+Egg Yellows: #ffdc6a

@@ -1,17 +1,36 @@
-import React, { createContext, useState } from "react";
+import React, { createContext, useState, useReducer } from "react";
 
-export const AppData = {
+const initialState = {
   loggedIn: false,
   token: "",
-  user: {}
+  user: {},
+  view: "login",
+  error: false,
+  errorMessage: "",
+  collections: [],
 };
 
-export const AppContext = createContext(AppData);
+function reducer(state, action) {
+  switch (action.type) {
+    case 'LOG_USER_IN':
+      return {...state, loggedIn: true, token: action.payload.token, user: action.payload.user, view: "home"};
+    case 'SET_CURRENT_VIEW':
+      return {...state, view: action.payload}
+    case "UPDATE_ERROR":
+      return {...state, error: action.payload.error, errorMessage: action.payload.message ? action.payload.message : ""}
+    case "UPDATE_COLLECTIONS":
+      return {...state, collections: action.payload}
+    default:
+      throw new Error();
+  }
+}
+
+export const AppContext = createContext(initialState);
 
 export const AppContextProvider = ({ children }) => {
-  const [appContext, setAppContext] = useState(AppData);
+  const [state, dispatch] = useReducer(reducer, initialState);
   return (
-    <AppContext.Provider value={{ state: appContext, setAppContext }}>
+    <AppContext.Provider value={{ state, dispatch }}>
       {children}
     </AppContext.Provider>
   );
